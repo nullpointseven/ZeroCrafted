@@ -1,0 +1,29 @@
+services:
+  mc:
+    image: itzg/minecraft-server
+    tty: true
+    stdin_open: true
+    ports:
+      - "25565:25565"
+    environment:
+      EULA: "TRUE"
+      TYPE: "MODRINTH"
+      MEMORY: "8G"
+      MOTD: "100% sponsored by Benjamin Netenyahu and the Islamic State of Japan"
+      ONLINE_MODE: "FALSE"
+      MODRINTH_MODPACK: https://modrinth.com/modpack/simply-crafted/version/1.6.1
+      MODRINTH_PROJECTS: |
+        collective:1.21.11-8.32-fabric+forge+neo
+        silk:1.11.5
+        better-trees:1.9.3+mod
+        immersive-paintings:0.7.8+1.21.11
+        homesteads:aFHVxkph
+        inventory-sorting:2.1.4+fabric-1.21.11
+        ore-harvester:1.21.11-1.5-fabric+forge+neo
+        tree-harvester:1.21.11-9.3-fabric+forge+neo
+        travelersbackpack:1.21.11-10.11.10
+        universal-graves:3.10.2+1.21.11
+        villager-names-serilum:1.21.11-8.5-fabric+forge+neo
+    volumes:
+      # attach the relative directory 'data' to the container's /data path
+      - ./data:/data
